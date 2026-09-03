@@ -9,165 +9,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#f3efe6; --paper-raised:#ece5d3; --line:#d8cfba;
-    --ink:#201c16; --dim:#6b6255; --dimmer:#a39a89;
-    --accent:#a13d2b; --accent-ink:#f3efe6;
-    --maxw:1080px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none !important; transition:none !important} }
-
-  body{
-    background:var(--paper); color:var(--ink);
-    font-family:'Fraunces',Georgia,'Times New Roman',serif;
-    font-optical-sizing:auto;
-    font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
-  a{color:inherit}
-  .wrap{max-width:var(--maxw); margin-inline:auto; padding-inline:1.75rem}
-
-  /* ---------- nav ---------- */
-  header{
-    position:sticky; top:0; z-index:20;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-  }
-  nav{display:flex; align-items:center; justify-content:space-between; height:4.4rem}
-  .brand{
-    font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.95rem;
-    letter-spacing:.03em; text-decoration:none; color:var(--ink);
-  }
-  .navlinks{display:flex; gap:2rem; align-items:center}
-  .navlinks a{
-    font-family:'IBM Plex Mono',monospace; font-size:.82rem; color:var(--dim);
-    text-decoration:none; letter-spacing:.02em;
-    padding-bottom:.2rem; border-bottom:1px solid transparent;
-    transition:color .15s ease, border-color .15s ease;
-  }
-  .navlinks a:hover{color:var(--ink); border-color:var(--dimmer)}
-  .navlinks .cta{
-    color:var(--ink); border:1px solid var(--ink); padding:.5rem .9rem;
-    border-bottom:1px solid var(--ink);
-  }
-  .navlinks .cta:hover{background:var(--ink); color:var(--paper)}
-
-  /* ---------- hero ---------- */
-  .hero{padding:5.5rem 0 5rem; position:relative; overflow:clip}
-  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:center}
-  .letterhead{
-    font-family:'IBM Plex Mono',monospace; color:var(--dim); font-size:.78rem;
-    letter-spacing:.08em; text-transform:uppercase; margin-bottom:1.6rem;
-    display:flex; align-items:center; gap:.6rem;
-  }
-  .letterhead::before{content:""; width:1.3rem; height:1px; background:var(--accent); flex:none}
-  h1{
-    font-family:'Fraunces',serif; font-optical-sizing:auto;
-    font-size:clamp(2.5rem, 5.2vw, 3.8rem); line-height:1.04; letter-spacing:-.01em;
-    font-weight:600; margin-bottom:1.4rem;
-  }
-  .lede{font-size:1.15rem; color:var(--dim); max-width:34rem; margin-bottom:2.2rem; font-family:Georgia,'Times New Roman',serif;}
-  .actions{display:flex; gap:1rem; flex-wrap:wrap}
-  .btn{
-    display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1.5rem;
-    font-family:'IBM Plex Mono',monospace; font-size:.85rem; letter-spacing:.02em;
-    text-decoration:none; border-radius:2px;
-    border:1px solid var(--ink); transition:background .15s ease, color .15s ease;
-  }
-  .btn-primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
-  .btn-primary:hover{background:#8a3323; border-color:#8a3323}
-  .btn-ghost{color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink); color:var(--paper)}
-
-  .hero-art{display:flex; align-items:center; justify-content:center}
-  .hero-art svg{width:100%; height:auto; max-width:300px}
-
-  /* ---------- section chrome ---------- */
-  section{padding:5rem 0; border-top:1px solid var(--line)}
-  .kicker{
-    font-family:'IBM Plex Mono',monospace; color:var(--dim); font-size:.78rem;
-    letter-spacing:.1em; text-transform:uppercase; margin-bottom:1rem; display:flex;
-    align-items:center; gap:.6rem;
-  }
-  .kicker::before{content:""; width:1.3rem; height:1px; background:var(--accent); flex:none}
-  h2{
-    font-family:'Fraunces',serif; font-optical-sizing:auto;
-    font-size:clamp(1.7rem,3.2vw,2.3rem); letter-spacing:-.01em; margin-bottom:1rem; font-weight:600;
-  }
-  .section-lede{color:var(--dim); max-width:38rem; font-size:1.05rem; margin-bottom:3rem; font-family:Georgia,'Times New Roman',serif;}
-
-  /* ---------- what we do: manifest rows ---------- */
-  .manifest{border-top:1px solid var(--line)}
-  .row{
-    display:grid; grid-template-columns:3rem 12rem 1fr; gap:1.5rem;
-    padding:1.6rem 0; border-bottom:1px solid var(--line); align-items:baseline;
-  }
-  .row .idx{font-family:'IBM Plex Mono',monospace; color:var(--dimmer); font-size:.85rem}
-  .row .label{font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem}
-  .row .desc{color:var(--dim); font-family:Georgia,'Times New Roman',serif; font-size:.98rem; line-height:1.6}
-
-  /* ---------- about ---------- */
-  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start}
-  .about-copy p{color:var(--dim); font-size:1.05rem; margin-bottom:1.2rem; max-width:32rem; font-family:Georgia,'Times New Roman',serif;}
-  .about-copy p strong{color:var(--ink); font-weight:700; font-family:'Fraunces',serif;}
-  .facts{border:1px solid var(--line)}
-  .fact{
-    display:flex; justify-content:space-between; gap:1rem; padding:1rem 1.3rem;
-    border-bottom:1px solid var(--line); font-family:'IBM Plex Mono',monospace; font-size:.85rem;
-  }
-  .fact:last-child{border-bottom:none}
-  .fact .k{color:var(--dim)}
-  .fact .v{color:var(--ink); text-align:right}
-
-  /* ---------- contact ---------- */
-  .contact-grid{display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap}
-  .contact-meta{display:flex; gap:2.5rem; margin-top:1.8rem; flex-wrap:wrap}
-  .contact-meta .k{font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.07em; color:var(--dimmer); margin-bottom:.35rem}
-  .contact-meta .v{font-size:1rem; font-family:Georgia,serif;}
-  .contact-meta a{text-decoration:none; border-bottom:1px solid var(--line)}
-  .contact-meta a:hover{border-color:var(--accent); color:var(--accent)}
-
-  footer{border-top:1px solid var(--line); padding:2.2rem 0; color:var(--dimmer); font-family:'IBM Plex Mono',monospace; font-size:.78rem}
-  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem}
-
-  @media (max-width: 860px){
-    .navlinks{gap:1.1rem}
-    .navlinks a:not(.cta){display:none}
-    .hero-grid{grid-template-columns:1fr}
-    .hero-art{order:-1; max-width:200px; margin-inline:auto}
-    .about-grid{grid-template-columns:1fr; gap:2rem}
-    .row{grid-template-columns:2.2rem 1fr; grid-template-areas:"idx label" ". desc"}
-    .row .idx{grid-area:idx}
-    .row .label{grid-area:label}
-    .row .desc{grid-area:desc}
-    .contact-grid{flex-direction:column; align-items:flex-start}
-  }
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <header>
   <div class="wrap">
     <nav>
-      <a class="brand" href="#top">KANNACO LLC</a>
+      <a class="brand" href="index.html">KANNACO LLC</a>
       <div class="navlinks">
-        <a href="#what-we-do">What we do</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="cta">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="cta">Contact</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main id="top">
+<main>
 
   <section class="hero" style="border-top:none">
     <div class="wrap hero-grid">
-      <div>
-        <span class="letterhead">Edison, NJ · LLC since August 2026</span>
+      <div class="reveal is-visible">
+        <span class="letterhead">Edison, NJ &middot; LLC since August 2026</span>
         <h1>Buy it right.<br>Sell it where it's worth more.</h1>
         <p class="lede">
           KANNACO LLC sources inventory through retail and wholesale channels, then
@@ -175,8 +40,8 @@
           tracked at its real landed cost, so pricing reflects actual margin.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:hello@shopkannaco.com">Email us</a>
-          <a class="btn btn-ghost" href="#what-we-do">What we do</a>
+          <a class="btn btn-primary" href="shop.html">View inventory</a>
+          <a class="btn btn-ghost" href="about.html">How it works</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -222,75 +87,83 @@
     </div>
   </section>
 
-  <section id="what-we-do">
+  <section class="strip" style="border-top:1px solid var(--line)">
     <div class="wrap">
-      <span class="kicker">What we do</span>
-      <h2>How the business works.</h2>
-      <p class="section-lede">
-        The company does two things: it buys inventory for less than it can sell
-        for, and it tracks the cost of every unit closely enough to know whether
-        that's actually true.
-      </p>
-      <div class="manifest">
-        <div class="row">
+      <span class="kicker reveal">How it works</span>
+      <h2 class="reveal">Four steps, same as any real shop.</h2>
+      <p class="section-lede reveal">No cart gimmicks — every order is confirmed by a person before it ships.</p>
+      <div class="strip-track reveal-group">
+        <div class="strip-card reveal">
           <span class="idx mono">01</span>
-          <span class="label">Sourcing</span>
-          <span class="desc">Inventory is bought through authorized retail and wholesale channels, logged at the price actually paid.</span>
+          <h3>Source</h3>
+          <p>Inventory is bought through authorized retail and wholesale channels, logged at the price actually paid.</p>
         </div>
-        <div class="row">
+        <div class="strip-card reveal">
           <span class="idx mono">02</span>
-          <span class="label">Distribution</span>
-          <span class="desc">Resale happens through established online marketplaces and direct sales to individual buyers.</span>
+          <h3>Verify</h3>
+          <p>Each unit's landed cost and condition are recorded before it's ever listed for sale.</p>
         </div>
-        <div class="row">
+        <div class="strip-card reveal">
           <span class="idx mono">03</span>
-          <span class="label">Cost tracking</span>
-          <span class="desc">An internal system records landed cost and margin per unit, so prices are set from real numbers.</span>
+          <h3>List</h3>
+          <p>Available inventory is posted with a real price and quantity — nothing listed that isn't in hand.</p>
+        </div>
+        <div class="strip-card reveal">
+          <span class="idx mono">04</span>
+          <h3>Ship</h3>
+          <p>Orders are packed and shipped directly once payment is confirmed.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <section>
     <div class="wrap">
-      <span class="kicker">About</span>
-      <h2>A one-person operation.</h2>
-      <div class="about-grid">
-        <div class="about-copy">
-          <p>
-            <strong>KANNACO LLC</strong> is a New Jersey single-member LLC, formed
-            in August 2026 and owned and run directly by
-            <strong>Krithik Kannan</strong>.
-          </p>
-          <p>
-            The company sources and resells consumer goods, with day-to-day
-            operations handled by its owner rather than outside staff.
-          </p>
+      <span class="kicker reveal">Shop</span>
+      <h2 class="reveal">What's currently available.</h2>
+      <p class="section-lede reveal">Inventory turns over regularly. These are the categories we deal in — email to confirm what's in stock today.</p>
+      <div class="cardgrid reveal-group">
+        <div class="card reveal">
+          <span class="tag">Sealed</span>
+          <h3>Sealed inventory</h3>
+          <p>Factory-sealed units, unopened and untouched since acquisition.</p>
+          <a class="btn btn-ghost" href="shop.html">View shop &rarr;</a>
         </div>
+        <div class="card reveal">
+          <span class="tag">Individual</span>
+          <h3>Individual items</h3>
+          <p>Single pieces sold on their own, condition noted up front.</p>
+          <a class="btn btn-ghost" href="shop.html">View shop &rarr;</a>
+        </div>
+        <div class="card reveal">
+          <span class="tag">Bulk</span>
+          <h3>Mixed lots</h3>
+          <p>Bundled groups sold together, priced as a set.</p>
+          <a class="btn btn-ghost" href="shop.html">View shop &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="kicker">About</span>
+        <h2>A New Jersey LLC, run directly.</h2>
+        <p class="lede" style="margin-bottom:1.2rem">
+          KANNACO LLC is a New Jersey single-member LLC, formed in August 2026.
+          The company sources and resells consumer goods, with pricing and
+          inventory tracked against real cost rather than estimates.
+        </p>
+        <a class="btn btn-ghost" href="about.html">Read more &rarr;</a>
+      </div>
+      <div class="reveal">
         <div class="facts">
           <div class="fact"><span class="k">Entity</span><span class="v">Single-member LLC</span></div>
           <div class="fact"><span class="k">State</span><span class="v">New Jersey</span></div>
           <div class="fact"><span class="k">Formed</span><span class="v">August 2026</span></div>
-          <div class="fact"><span class="k">Owner</span><span class="v">Krithik Kannan</span></div>
           <div class="fact"><span class="k">Location</span><span class="v">Edison, NJ</span></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <span class="kicker">Contact</span>
-      <div class="contact-grid">
-        <div>
-          <h2>Reach the owner directly.</h2>
-          <p class="lede" style="margin-bottom:0">Every message is read and answered directly by the owner.</p>
-          <div class="contact-meta">
-            <div><div class="k">Email</div><div class="v"><a href="mailto:hello@shopkannaco.com">hello@shopkannaco.com</a></div></div>
-            <div><div class="k">Location</div><div class="v">Edison, New Jersey</div></div>
-          </div>
-        </div>
-        <a class="btn btn-primary" href="mailto:hello@shopkannaco.com">Email us</a>
       </div>
     </div>
   </section>
@@ -299,10 +172,31 @@
 
 <footer>
   <div class="wrap">
-    <span>&copy; 2026 KANNACO LLC. All rights reserved.</span>
-    <span>shopkannaco.com</span>
+    <div class="footgrid">
+      <div class="footbrand">
+        <a class="brand" href="index.html">KANNACO LLC</a>
+        <p>E-commerce resale of consumer goods, sourced through retail and wholesale channels and sold through online marketplaces and direct sales.</p>
+      </div>
+      <div class="footcol">
+        <span class="k">Site</span>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footcol">
+        <span class="k">Contact</span>
+        <a href="mailto:support@shopkannaco.com">support@shopkannaco.com</a>
+        <span class="line">Edison, New Jersey</span>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>&copy; 2026 KANNACO LLC. All rights reserved.</span>
+      <span>shopkannaco.com</span>
+    </div>
   </div>
 </footer>
 
+<script src="site.js"></script>
 </body>
 </html>
