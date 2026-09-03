@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KANNACO LLC</title>
-<meta name="description" content="KANNACO LLC — e-commerce resale of consumer goods.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23e08c34' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<meta name="description" content="KANNACO LLC — e-commerce resale of consumer goods. Edison, New Jersey.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f3efe6'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%23a13d2b' stroke-width='5'/%3E%3Cpath d='M36 51 L46 61 L66 34' stroke='%23a13d2b' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0b0d; --bg-raised:#141417; --line:#232327;
-    --fg:#eceae6; --dim:#8b8b93; --dimmer:#5c5c63;
-    --accent:#e08c34; --accent-soft:#3a2a18;
+    --paper:#f3efe6; --paper-raised:#ece5d3; --line:#d8cfba;
+    --ink:#201c16; --dim:#6b6255; --dimmer:#a39a89;
+    --accent:#a13d2b; --accent-ink:#f3efe6;
     --maxw:1080px;
   }
   *{box-sizing:border-box; margin:0; padding:0}
@@ -21,9 +21,10 @@
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none !important; transition:none !important} }
 
   body{
-    background:var(--bg); color:var(--fg);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    background:var(--paper); color:var(--ink);
+    font-family:'Fraunces',Georgia,'Times New Roman',serif;
+    font-optical-sizing:auto;
+    font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
   }
   .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
   a{color:inherit}
@@ -32,116 +33,117 @@
   /* ---------- nav ---------- */
   header{
     position:sticky; top:0; z-index:20;
-    background:rgba(11,11,13,.82); backdrop-filter:blur(10px);
+    background:var(--paper);
     border-bottom:1px solid var(--line);
   }
-  nav{display:flex; align-items:center; justify-content:space-between; height:4.5rem}
-  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; font-size:1.05rem; letter-spacing:.01em; text-decoration:none}
-  .brand .mark{
-    width:2rem; height:2rem; border-radius:.5rem; background:var(--accent-soft);
-    color:var(--accent); display:flex; align-items:center; justify-content:center;
-    font-family:Georgia,serif; font-size:1.15rem; font-weight:700; flex:none;
+  nav{display:flex; align-items:center; justify-content:space-between; height:4.4rem}
+  .brand{
+    font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.95rem;
+    letter-spacing:.03em; text-decoration:none; color:var(--ink);
   }
-  .navlinks{display:flex; gap:2.1rem; align-items:center}
+  .navlinks{display:flex; gap:2rem; align-items:center}
   .navlinks a{
-    font-size:.88rem; color:var(--dim); text-decoration:none; font-weight:500;
-    transition:color .15s ease;
+    font-family:'IBM Plex Mono',monospace; font-size:.82rem; color:var(--dim);
+    text-decoration:none; letter-spacing:.02em;
+    padding-bottom:.2rem; border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
   }
-  .navlinks a:hover{color:var(--fg)}
+  .navlinks a:hover{color:var(--ink); border-color:var(--dimmer)}
   .navlinks .cta{
-    color:var(--bg); background:var(--accent); padding:.5rem 1.05rem; border-radius:.4rem;
-    font-weight:600;
+    color:var(--ink); border:1px solid var(--ink); padding:.5rem .9rem;
+    border-bottom:1px solid var(--ink);
   }
-  .navlinks .cta:hover{filter:brightness(1.08)}
-  .navtoggle{display:none}
+  .navlinks .cta:hover{background:var(--ink); color:var(--paper)}
 
   /* ---------- hero ---------- */
-  .hero{padding:6.5rem 0 5.5rem; position:relative; overflow:clip}
+  .hero{padding:5.5rem 0 5rem; position:relative; overflow:clip}
   .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:center}
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:.55rem; color:var(--accent);
-    font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
-    margin-bottom:1.5rem;
+  .letterhead{
+    font-family:'IBM Plex Mono',monospace; color:var(--dim); font-size:.78rem;
+    letter-spacing:.08em; text-transform:uppercase; margin-bottom:1.6rem;
+    display:flex; align-items:center; gap:.6rem;
   }
-  .eyebrow::before{content:""; width:1.4rem; height:1px; background:var(--accent)}
+  .letterhead::before{content:""; width:1.3rem; height:1px; background:var(--accent); flex:none}
   h1{
-    font-size:clamp(2.4rem, 5vw, 3.6rem); line-height:1.06; letter-spacing:-.02em;
-    font-weight:700; margin-bottom:1.4rem;
+    font-family:'Fraunces',serif; font-optical-sizing:auto;
+    font-size:clamp(2.5rem, 5.2vw, 3.8rem); line-height:1.04; letter-spacing:-.01em;
+    font-weight:600; margin-bottom:1.4rem;
   }
-  .lede{font-size:1.15rem; color:var(--dim); max-width:34rem; margin-bottom:2.2rem}
+  .lede{font-size:1.15rem; color:var(--dim); max-width:34rem; margin-bottom:2.2rem; font-family:Georgia,'Times New Roman',serif;}
   .actions{display:flex; gap:1rem; flex-wrap:wrap}
   .btn{
     display:inline-flex; align-items:center; gap:.5rem; padding:.8rem 1.5rem;
-    border-radius:.5rem; font-weight:600; font-size:.92rem; text-decoration:none;
-    border:1px solid transparent; transition:transform .15s ease, filter .15s ease;
+    font-family:'IBM Plex Mono',monospace; font-size:.85rem; letter-spacing:.02em;
+    text-decoration:none; border-radius:2px;
+    border:1px solid var(--ink); transition:background .15s ease, color .15s ease;
   }
-  .btn-primary{background:var(--accent); color:#0b0b0d}
-  .btn-primary:hover{filter:brightness(1.08); transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--line); color:var(--fg)}
-  .btn-ghost:hover{border-color:var(--dimmer)}
+  .btn-primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
+  .btn-primary:hover{background:#8a3323; border-color:#8a3323}
+  .btn-ghost{color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper)}
 
-  .hero-art{aspect-ratio:1; display:flex; align-items:center; justify-content:center}
-  .hero-art svg{width:100%; height:100%; max-width:340px}
+  .hero-art{display:flex; align-items:center; justify-content:center}
+  .hero-art svg{width:100%; height:auto; max-width:300px}
 
   /* ---------- section chrome ---------- */
-  section{padding:5.5rem 0; border-top:1px solid var(--line)}
-  .num{
-    font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:.85rem;
-    margin-bottom:.9rem; display:block;
+  section{padding:5rem 0; border-top:1px solid var(--line)}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace; color:var(--dim); font-size:.78rem;
+    letter-spacing:.1em; text-transform:uppercase; margin-bottom:1rem; display:flex;
+    align-items:center; gap:.6rem;
   }
-  h2{font-size:clamp(1.6rem,3vw,2.1rem); letter-spacing:-.01em; margin-bottom:1rem; font-weight:700}
-  .section-lede{color:var(--dim); max-width:38rem; font-size:1.02rem; margin-bottom:3rem}
+  .kicker::before{content:""; width:1.3rem; height:1px; background:var(--accent); flex:none}
+  h2{
+    font-family:'Fraunces',serif; font-optical-sizing:auto;
+    font-size:clamp(1.7rem,3.2vw,2.3rem); letter-spacing:-.01em; margin-bottom:1rem; font-weight:600;
+  }
+  .section-lede{color:var(--dim); max-width:38rem; font-size:1.05rem; margin-bottom:3rem; font-family:Georgia,'Times New Roman',serif;}
 
-  /* ---------- what we do ---------- */
-  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem}
-  .card{
-    background:var(--bg-raised); border:1px solid var(--line); border-radius:.7rem;
-    padding:1.8rem;
+  /* ---------- what we do: manifest rows ---------- */
+  .manifest{border-top:1px solid var(--line)}
+  .row{
+    display:grid; grid-template-columns:3rem 12rem 1fr; gap:1.5rem;
+    padding:1.6rem 0; border-bottom:1px solid var(--line); align-items:baseline;
   }
-  .card .glyph{
-    width:2.4rem; height:2.4rem; border-radius:.5rem; background:var(--accent-soft);
-    display:flex; align-items:center; justify-content:center; margin-bottom:1.1rem;
-  }
-  .card h3{font-size:1.02rem; margin-bottom:.55rem; font-weight:600}
-  .card p{color:var(--dim); font-size:.92rem; line-height:1.6}
+  .row .idx{font-family:'IBM Plex Mono',monospace; color:var(--dimmer); font-size:.85rem}
+  .row .label{font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem}
+  .row .desc{color:var(--dim); font-family:Georgia,'Times New Roman',serif; font-size:.98rem; line-height:1.6}
 
   /* ---------- about ---------- */
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start}
-  .about-copy p{color:var(--dim); font-size:1.02rem; margin-bottom:1.2rem; max-width:32rem}
-  .about-copy p strong{color:var(--fg); font-weight:600}
-  .facts{border:1px solid var(--line); border-radius:.7rem; overflow:hidden}
+  .about-copy p{color:var(--dim); font-size:1.05rem; margin-bottom:1.2rem; max-width:32rem; font-family:Georgia,'Times New Roman',serif;}
+  .about-copy p strong{color:var(--ink); font-weight:700; font-family:'Fraunces',serif;}
+  .facts{border:1px solid var(--line)}
   .fact{
-    display:flex; justify-content:space-between; gap:1rem; padding:1.05rem 1.4rem;
-    border-bottom:1px solid var(--line); font-size:.92rem;
+    display:flex; justify-content:space-between; gap:1rem; padding:1rem 1.3rem;
+    border-bottom:1px solid var(--line); font-family:'IBM Plex Mono',monospace; font-size:.85rem;
   }
   .fact:last-child{border-bottom:none}
-  .fact .k{color:var(--dimmer)}
-  .fact .v{color:var(--fg); font-weight:500; text-align:right}
+  .fact .k{color:var(--dim)}
+  .fact .v{color:var(--ink); text-align:right}
 
   /* ---------- contact ---------- */
-  .contact-box{
-    background:var(--bg-raised); border:1px solid var(--line); border-radius:.9rem;
-    padding:2.6rem; display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap;
-  }
-  .contact-box h2{margin-bottom:.4rem}
-  .contact-box p{color:var(--dim)}
-  .contact-meta{display:flex; gap:2.5rem; margin-top:1.6rem; flex-wrap:wrap}
-  .contact-meta .k{font-size:.75rem; text-transform:uppercase; letter-spacing:.07em; color:var(--dimmer); margin-bottom:.3rem}
-  .contact-meta .v{font-size:.95rem; font-weight:500}
+  .contact-grid{display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap}
+  .contact-meta{display:flex; gap:2.5rem; margin-top:1.8rem; flex-wrap:wrap}
+  .contact-meta .k{font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.07em; color:var(--dimmer); margin-bottom:.35rem}
+  .contact-meta .v{font-size:1rem; font-family:Georgia,serif;}
   .contact-meta a{text-decoration:none; border-bottom:1px solid var(--line)}
   .contact-meta a:hover{border-color:var(--accent); color:var(--accent)}
 
-  footer{border-top:1px solid var(--line); padding:2.4rem 0; color:var(--dimmer); font-size:.85rem}
+  footer{border-top:1px solid var(--line); padding:2.2rem 0; color:var(--dimmer); font-family:'IBM Plex Mono',monospace; font-size:.78rem}
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem}
 
   @media (max-width: 860px){
-    .navlinks{gap:1.2rem}
+    .navlinks{gap:1.1rem}
     .navlinks a:not(.cta){display:none}
     .hero-grid{grid-template-columns:1fr}
-    .hero-art{order:-1; max-width:220px; margin-inline:auto}
-    .grid3{grid-template-columns:1fr}
+    .hero-art{order:-1; max-width:200px; margin-inline:auto}
     .about-grid{grid-template-columns:1fr; gap:2rem}
-    .contact-box{flex-direction:column; align-items:flex-start}
+    .row{grid-template-columns:2.2rem 1fr; grid-template-areas:"idx label" ". desc"}
+    .row .idx{grid-area:idx}
+    .row .label{grid-area:label}
+    .row .desc{grid-area:desc}
+    .contact-grid{flex-direction:column; align-items:flex-start}
   }
 </style>
 </head>
@@ -150,10 +152,7 @@
 <header>
   <div class="wrap">
     <nav>
-      <a class="brand" href="#top">
-        <span class="mark">K</span>
-        KANNACO&nbsp;LLC
-      </a>
+      <a class="brand" href="#top">KANNACO LLC</a>
       <div class="navlinks">
         <a href="#what-we-do">What we do</a>
         <a href="#about">About</a>
@@ -168,25 +167,56 @@
   <section class="hero" style="border-top:none">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">New Jersey · Est. 2026</span>
-        <h1>E-commerce resale of&nbsp;consumer&nbsp;goods.</h1>
+        <span class="letterhead">Edison, NJ · LLC since August 2026</span>
+        <h1>Buy it right.<br>Sell it where it's worth more.</h1>
         <p class="lede">
-          KANNACO LLC sources inventory through retail and wholesale channels and
-          resells it through online marketplaces and direct sales — with pricing
-          and inventory managed against measured cost, not estimates.
+          KANNACO LLC sources inventory through retail and wholesale channels, then
+          resells it through online marketplaces and direct sales. Every unit is
+          tracked at its real landed cost, so pricing reflects actual margin.
         </p>
         <div class="actions">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-primary" href="mailto:hello@shopkannaco.com">Email us</a>
           <a class="btn btn-ghost" href="#what-we-do">What we do</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none">
-          <circle cx="100" cy="100" r="86" stroke="#232327" stroke-width="1.5"/>
-          <circle cx="100" cy="100" r="60" stroke="#232327" stroke-width="1.5"/>
-          <path d="M100 14 L100 40 M100 160 L100 186 M14 100 L40 100 M160 100 L186 100" stroke="#232327" stroke-width="1.5"/>
-          <rect x="70" y="70" width="60" height="60" rx="10" fill="#3a2a18" stroke="#e08c34" stroke-width="1.5" transform="rotate(45 100 100)"/>
-          <circle cx="100" cy="100" r="7" fill="#e08c34"/>
+        <svg viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="34" y="26" width="170" height="228" rx="4" transform="rotate(-6 119 140)" fill="#e4dcc8"/>
+          <g transform="rotate(4 115 140)">
+            <rect x="30" y="20" width="170" height="228" rx="4" fill="#f8f5ec" stroke="#201c16" stroke-width="2"/>
+            <path d="M100 34 Q 84 6 128 6 Q 172 6 156 34" stroke="#201c16" stroke-width="2" fill="none"/>
+            <circle cx="128" cy="40" r="9" fill="#f3efe6" stroke="#201c16" stroke-width="2"/>
+            <rect x="52" y="74" width="126" height="8" rx="1" fill="#d8cfba"/>
+            <rect x="52" y="92" width="98" height="8" rx="1" fill="#d8cfba"/>
+            <rect x="52" y="110" width="112" height="8" rx="1" fill="#d8cfba"/>
+            <line x1="52" y1="136" x2="178" y2="136" stroke="#d8cfba" stroke-width="1.5"/>
+            <g fill="#201c16">
+              <rect x="52" y="156" width="3" height="42"/>
+              <rect x="58" y="156" width="6" height="42"/>
+              <rect x="67" y="156" width="2" height="42"/>
+              <rect x="72" y="156" width="4" height="42"/>
+              <rect x="80" y="156" width="3" height="42"/>
+              <rect x="86" y="156" width="7" height="42"/>
+              <rect x="96" y="156" width="2" height="42"/>
+              <rect x="101" y="156" width="5" height="42"/>
+              <rect x="109" y="156" width="3" height="42"/>
+              <rect x="115" y="156" width="2" height="42"/>
+              <rect x="120" y="156" width="6" height="42"/>
+              <rect x="129" y="156" width="3" height="42"/>
+              <rect x="135" y="156" width="4" height="42"/>
+              <rect x="142" y="156" width="2" height="42"/>
+              <rect x="147" y="156" width="7" height="42"/>
+              <rect x="157" y="156" width="3" height="42"/>
+              <rect x="163" y="156" width="5" height="42"/>
+              <rect x="171" y="156" width="2" height="42"/>
+            </g>
+            <text x="115" y="216" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="2" fill="#6b6255">NJ &#183; US</text>
+          </g>
+          <g transform="rotate(-12 205 78)">
+            <circle cx="205" cy="78" r="42" fill="none" stroke="#a13d2b" stroke-width="2.5"/>
+            <circle cx="205" cy="78" r="34" fill="none" stroke="#a13d2b" stroke-width="1"/>
+            <path d="M188 80 l11 11 l24 -28" stroke="#a13d2b" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
         </svg>
       </div>
     </div>
@@ -194,33 +224,28 @@
 
   <section id="what-we-do">
     <div class="wrap">
-      <span class="num">01 · What we do</span>
-      <h2>Sourcing, then distribution.</h2>
+      <span class="kicker">What we do</span>
+      <h2>How the business works.</h2>
       <p class="section-lede">
-        The business has two working halves — getting inventory in below market,
-        and getting it back out through the channels that actually net money.
+        The company does two things: it buys inventory for less than it can sell
+        for, and it tracks the cost of every unit closely enough to know whether
+        that's actually true.
       </p>
-      <div class="grid3">
-        <div class="card">
-          <div class="glyph">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e08c34" stroke-width="1.8"><path d="M3 3h18M3 3l1 12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2l1-12M8 3v0a4 4 0 0 0 8 0v0"/></svg>
-          </div>
-          <h3>Sourcing</h3>
-          <p>Inventory acquired through authorized retail and wholesale channels, tracked at true landed cost.</p>
+      <div class="manifest">
+        <div class="row">
+          <span class="idx mono">01</span>
+          <span class="label">Sourcing</span>
+          <span class="desc">Inventory is bought through authorized retail and wholesale channels, logged at the price actually paid.</span>
         </div>
-        <div class="card">
-          <div class="glyph">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e08c34" stroke-width="1.8"><path d="M3 9l9-6 9 6-9 6-9-6zM3 9v6l9 6 9-6V9"/></svg>
-          </div>
-          <h3>Distribution</h3>
-          <p>Resale through established online marketplaces and direct sales to end buyers.</p>
+        <div class="row">
+          <span class="idx mono">02</span>
+          <span class="label">Distribution</span>
+          <span class="desc">Resale happens through established online marketplaces and direct sales to individual buyers.</span>
         </div>
-        <div class="card">
-          <div class="glyph">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e08c34" stroke-width="1.8"><path d="M3 3v18h18M7 15l4-5 3 3 5-7"/></svg>
-          </div>
-          <h3>Measured, not guessed</h3>
-          <p>An in-house system tracks cost basis and margin per unit, so pricing is set against real numbers.</p>
+        <div class="row">
+          <span class="idx mono">03</span>
+          <span class="label">Cost tracking</span>
+          <span class="desc">An internal system records landed cost and margin per unit, so prices are set from real numbers.</span>
         </div>
       </div>
     </div>
@@ -228,18 +253,18 @@
 
   <section id="about">
     <div class="wrap">
-      <span class="num">02 · About</span>
-      <h2>A small, real operation.</h2>
+      <span class="kicker">About</span>
+      <h2>A one-person operation.</h2>
       <div class="about-grid">
         <div class="about-copy">
           <p>
-            <strong>KANNACO LLC</strong> is a New Jersey single-member limited liability
-            company, formed in August 2026. The company is owned and operated by
-            <strong>Krithik&nbsp;Kannan</strong>.
+            <strong>KANNACO LLC</strong> is a New Jersey single-member LLC, formed
+            in August 2026 and owned and run directly by
+            <strong>Krithik Kannan</strong>.
           </p>
           <p>
-            The business is early-stage and run directly by its owner — no outside
-            staff, no outside claims. What's on this page is what's true.
+            The company sources and resells consumer goods, with day-to-day
+            operations handled by its owner rather than outside staff.
           </p>
         </div>
         <div class="facts">
@@ -255,11 +280,11 @@
 
   <section id="contact">
     <div class="wrap">
-      <span class="num">03 · Contact</span>
-      <div class="contact-box">
+      <span class="kicker">Contact</span>
+      <div class="contact-grid">
         <div>
-          <h2>Say hello.</h2>
-          <p>The fastest way to reach us is email — we read every message ourselves.</p>
+          <h2>Reach the owner directly.</h2>
+          <p class="lede" style="margin-bottom:0">Every message is read and answered directly by the owner.</p>
           <div class="contact-meta">
             <div><div class="k">Email</div><div class="v"><a href="mailto:hello@shopkannaco.com">hello@shopkannaco.com</a></div></div>
             <div><div class="k">Location</div><div class="v">Edison, New Jersey</div></div>
@@ -274,8 +299,8 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 KANNACO LLC. All rights reserved.</span>
-    <span class="mono" style="color:var(--dimmer)">shopkannaco.com</span>
+    <span>&copy; 2026 KANNACO LLC. All rights reserved.</span>
+    <span>shopkannaco.com</span>
   </div>
 </footer>
 
